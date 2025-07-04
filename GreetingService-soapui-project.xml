@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="9216365d-a631-4318-99e8-c8f91f818b25" activeEnvironment="Default" name="GreetingService" resourceRoot="" soapui-version="5.8.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="4423bd13-a806-432b-973b-05f5aec44253" wsaVersion="NONE" name="GreetingPortSoap11" type="wsdl" bindingName="{http://example.com/soapservice}GreetingPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ws/greeting.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/ws/greeting.wsdl"><con:part><con:url>http://localhost:8080/ws/greeting.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://example.com/soapservice" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://example.com/soapservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://example.com/soapservice">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://example.com/soapservice" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="GreetingRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GreetingResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="message" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="GreetingResponse">
+    <wsdl:part element="tns:GreetingResponse" name="GreetingResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GreetingRequest">
+    <wsdl:part element="tns:GreetingRequest" name="GreetingRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="GreetingPort">
+    <wsdl:operation name="Greeting">
+      <wsdl:input message="tns:GreetingRequest" name="GreetingRequest"></wsdl:input>
+      <wsdl:output message="tns:GreetingResponse" name="GreetingResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GreetingPortSoap11" type="tns:GreetingPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Greeting">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="GreetingRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GreetingResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GreetingPortService">
+    <wsdl:port binding="tns:GreetingPortSoap11" name="GreetingPortSoap11">
+      <soap:address location="http://localhost:8080/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ws</con:endpoint></con:endpoints><con:operation id="571431e4-fbe9-40ee-9330-06dbcb299841" isOneWay="false" action="" name="Greeting" bindingOperationName="Greeting" type="Request-Response" outputName="GreetingResponse" inputName="GreetingRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="01ad0105-afb1-4dce-a602-eaae57c941fb" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:ser="http://example.com/soapservice">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:GreetingRequest>
+         <ser:name>Supun</ser:name>
+      </ser:GreetingRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://example.com/soapservice/GreetingPort/GreetingRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
